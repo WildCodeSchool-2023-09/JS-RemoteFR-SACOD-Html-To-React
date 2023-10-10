@@ -4,9 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>html to react</title>
-		<script src="https://www.unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
-		<script src="https://www.unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+		<script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
 		<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+		<style>
+			h1 {
+				color: salmon;
+			}
+			.container {
+				background-color: gold;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="root"></div>
@@ -21,33 +30,74 @@
 			// 	[h1, h2]
 			// );
 
+			/**
+			 *
+			 * <div> ... </div>
+			 *
+			 *
+			 * Fragment.
+			 *
+			 * <React.Fragment> ... </React.Fragment>
+			 *
+			 * <> ... </>
+			 *
+			 *
+			 * */
+
+			class Bonjour extends React.Component {
+				render() {
+					console.log(this.props);
+					return (
+						<div className="container">
+							<h1>
+								Bonjour la team {this.props.crew} | Version :{" "}
+								{this.props.version}
+							</h1>
+							<h2>SACOD fort ici</h2>
+							<h3>Je suis un composant d'une classe</h3>
+							<p>
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Omnis sed, dicta eveniet
+								inventore quas nisi vero veritatis consequuntur
+								provident maiores odit labore asperiores
+								quisquam. Tempora explicabo voluptate laudantium
+								id neque!a
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Consequuntur corrupti saepe
+								quae asperiores fuga ipsam aperiam rem enim
+								dolorem vitae eaque ipsum fugit, totam,
+								reprehenderit labore aspernatur ipsa aliquid
+								neque. Harum cum a aliquid perspiciatis eveniet
+								unde, delectus repudiandae beatae labore
+								molestias sit repellendus assumenda dicta!
+								Laborum ducimus fugit sed tempore rerum modi
+								obcaecati debitis, tempora possimus! Accusamus,
+								non sint? Quae, voluptates incidunt omnis quasi
+								voluptatem sint facere minima non porro vitae
+								reprehenderit alias deserunt voluptas blanditiis
+								sunt iste distinctio? Adipisci eveniet quisquam
+								laborum molestias ratione expedita et iste id.
+							</p>
+						</div>
+					);
+				}
+			}
+
+			const BonjourDepuisUneFonction = function (props) {
+				console.log(props);
+				return (
+					<div>
+						<h1>Coucou depuis une fonction</h1>
+						<h2>
+							Salut la team {props.crew} | v: {props.version}{" "}
+						</h2>
+					</div>
+				);
+			};
 			ReactDOM.render(
-				<div class="container">
-					<h1>Bonjour la team SACOD</h1>
-					<h2>SACOD fort ici</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Omnis sed, dicta eveniet inventore quas nisi vero
-						veritatis consequuntur provident maiores odit labore
-						asperiores quisquam. Tempora explicabo voluptate
-						laudantium id neque!a
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing
-						elit. Consequuntur corrupti saepe quae asperiores fuga
-						ipsam aperiam rem enim dolorem vitae eaque ipsum fugit,
-						totam, reprehenderit labore aspernatur ipsa aliquid
-						neque. Harum cum a aliquid perspiciatis eveniet unde,
-						delectus repudiandae beatae labore molestias sit
-						repellendus assumenda dicta! Laborum ducimus fugit sed
-						tempore rerum modi obcaecati debitis, tempora possimus!
-						Accusamus, non sint? Quae, voluptates incidunt omnis
-						quasi voluptatem sint facere minima non porro vitae
-						reprehenderit alias deserunt voluptas blanditiis sunt
-						iste distinctio? Adipisci eveniet quisquam laborum
-						molestias ratione expedita et iste id.
-					</p>
-				</div>,
+				<BonjourDepuisUneFonction crew="SACOD" version="2.0" />,
 				root
 			);
 		</script>
