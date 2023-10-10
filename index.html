@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>html to react</title>
-</head>
-<body>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>html to react</title>
+		<script src="https://www.unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+		<script src="https://www.unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script>
+			const root = document.getElementById("root");
+			const h1 = React.createElement("h1", null, "Bonjour la team SACOD");
+			const h2 = React.createElement("h2", null, "SACOD fort ici");
+			const container = React.createElement(
+				"div",
+				{ class: "container" },
+				[h1, h2]
+			);
+
+			ReactDOM.render(container, root);
+		</script>
+	</body>
 </html>
