@@ -90,12 +90,15 @@
 				return (
 					<div>
 						<h1>Coucou depuis une fonction</h1>
-						<h2>
-							Salut la team {props.crew} | v: {props.version}{" "}
-						</h2>
+						<Team crew={props.crew} />
 					</div>
 				);
 			};
+
+			const Team = (props) => {
+				return <h2>Salut la team {props.crew}</h2>;
+			};
+
 			ReactDOM.render(
 				<BonjourDepuisUneFonction crew="SACOD" version="2.0" />,
 				root
